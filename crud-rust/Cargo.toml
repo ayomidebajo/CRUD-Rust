@@ -8,5 +8,5 @@ edition = "2021"
 [dependencies]
 tide = "0.16.0"
 async-std = { version = "1.8.0", features = ["attributes"] }
-mediasoup = "0.10.0"
-mediasoup-sys = "0.5.0"
+# mediasoup = "0.11.0"
+# mediasoup-sys = "0.5.0"

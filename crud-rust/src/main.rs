@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 use tide::prelude::*;
 use tide::{Request, Response};
 
@@ -15,9 +16,12 @@ async fn main() -> tide::Result<()> {
     Ok(())
 }
 
+// Post request
 async fn make_test_request(mut req: Request<()>) -> tide::Result {
+    let mut db = HashMap::new();
     let TestRequest { name, typ } = req.body_json().await?;
-
+    // db.insert(name, typ);
+    println!("db {}", db);
     Ok(format!(
         "Hello this is a test request with a {} and a {}",
         name, typ
