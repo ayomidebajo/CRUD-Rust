@@ -10,6 +10,7 @@ struct TestRequest {
 }
 
 // write get request
+// make hashmap save number as an id and the value should be a deserialized struct
 
 #[async_std::main]
 async fn main() -> tide::Result<()> {
@@ -23,9 +24,9 @@ async fn main() -> tide::Result<()> {
 
 // Post request
 async fn make_test_request(mut req: Request<()>) -> tide::Result {
-    // let mut db = HashMap::<String, String>::new();
+    let mut db = HashMap::<String, String>::new();
     let TestRequest { name, typ } = req.body_json().await?;
-    // db.insert(name, typ);
-    // println!("db {:?}", db);
+    db.insert(name.clone(), typ.clone());
+    println!("db {:?}", db);
     Ok(format!("Hello this is a test request with a {} and a {}", name, typ).into())
 }
