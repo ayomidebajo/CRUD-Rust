@@ -11,6 +11,7 @@ struct TestRequest {
 
 // write get request
 // make hashmap save number as an id and the value should be a deserialized struct
+// make hashmap an arc mutex
 
 #[async_std::main]
 async fn main() -> tide::Result<()> {
@@ -30,3 +31,8 @@ async fn make_test_request(mut req: Request<()>) -> tide::Result {
     println!("db {:?}", db);
     Ok(format!("Hello this is a test request with a {} and a {}", name, typ).into())
 }
+
+
+// async fn make_get_request(mut req: Request<()>) -> tide::Response {
+//     let res = 
+// }
